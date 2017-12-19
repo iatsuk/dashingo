@@ -1,6 +1,6 @@
 .background {
     display: grid;
-    grid-template-rows: 10% auto 10%;
+    grid-template-rows: 10% 80% 10%;
     grid-column-gap: 1%;
     grid-row-gap: 1%;
     justify-content: stretch;
@@ -68,10 +68,7 @@
 
 .board {
     content: url("../img/board.bmp");
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     max-width: 100%;
     max-height: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
