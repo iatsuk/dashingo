@@ -22,8 +22,6 @@
     align-self: end;
 
     background: darkgrey;
-
-    z-index: 5;
 }
 
 .board-area {
@@ -31,10 +29,7 @@
     grid-row: 2;
     justify-self: center;
     align-self: center;
-
     background: bisque;
-
-    z-index: 10;
 }
 
 .bottom-bowl-area {
@@ -43,10 +38,82 @@
     justify-self: center;
     align-self: start;
     background: lightgrey;
-    z-index: 5;
+}
+
+/* Board */
+
+.board {
+    background: url("../img/board.bmp") no-repeat;
+    background-size: contain;
+    position: static;
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.grid {
+    font-size: 0;
+}
+
+.grid-cross {
+    display: inline-block;
+    content: url("../img/grid-cross.svg");
+}
+
+.grid-cross-dot {
+    display: inline-block;
+    content: url("../img/grid-cross-dot.svg");
+}
+
+.grid-top {
+    display: inline-block;
+    content: url("../img/grid-top.svg");
+}
+
+.grid-bottom {
+    display: inline-block;
+    content: url("../img/grid-bottom.svg");
+}
+
+.grid-left {
+    display: inline-block;
+    content: url("../img/grid-left.svg");
+}
+
+.grid-right {
+    display: inline-block;
+    content: url("../img/grid-right.svg");
+}
+
+.grid-top-left {
+    display: inline-block;
+    content: url("../img/grid-top-left.svg");
+}
+
+.grid-top-right {
+    display: inline-block;
+    content: url("../img/grid-top-right.svg");
+}
+
+.grid-bottom-left {
+    display: inline-block;
+    content: url("../img/grid-bottom-left.svg");
+}
+
+.grid-bottom-right {
+    display: inline-block;
+    content: url("../img/grid-bottom-right.svg");
 }
 
 /* Objects */
+.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
 .black-bowl {
     border-radius: 50%;
     height: 200%;
@@ -64,12 +131,4 @@
 .stone {
     content: url("../img/stone.bmp");
     border-radius: 50%;
-}
-
-.board {
-    content: url("../img/board.bmp");
-    position: relative;
-    max-width: 100%;
-    max-height: 100%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }

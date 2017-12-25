@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="css/goban.css">
 </head>
 <body>
-
 <div class="background">
     <div class="top-bowl-area black-bowl"></div>
-    <div class="board-area board"></div>
+    <div class="board-area board">
+        <div id="grid" class="grid">
+        </div>
+    </div>
     <div class="bottom-bowl-area white-bowl"></div>
     <!--<div id="draggable" class="stone"></div>-->
 </div>
@@ -19,15 +21,16 @@
 <script>
     $("#draggable").draggable();
     $("#grid-snap").droppable({
-        over: function(event, ui) {
+        over: function (event, ui) {
             $("#draggable").draggable({
                 grid: [50, 50]
             });
         },
-        out: function(event, ui) {
+        out: function (event, ui) {
             $("#draggable").draggable("option", "grid", false);
         }
     })
 </script>
+<script src="js/board.js"></script>
 </body>
 </html>
