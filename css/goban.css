@@ -128,6 +128,7 @@ html, body {
 .stone {
     content: url("../img/stone.bmp");
     border-radius: 50%;
+    width: 40px;
 }
 
 /* Utils */
@@ -140,20 +141,32 @@ html, body {
 }
 
 /* Adaptive design */
-@media screen and (max-width: 800px), screen and (max-height: 980px){
+@media screen and (max-width: 800px), screen and (max-height: 980px) {
     .grid-item {
+        width: 30px;
+    }
+
+    .stone {
         width: 30px;
     }
 }
 
-@media screen and (max-width: 600px), screen and (max-height: 780px){
+@media screen and (max-width: 600px), screen and (max-height: 780px) {
     .grid-item {
+        width: 25px;
+    }
+
+    .stone {
         width: 25px;
     }
 }
 
-@media screen and (max-width: 500px), screen and (max-height: 680px){
+@media screen and (max-width: 500px), screen and (max-height: 680px) {
     .grid-item {
+        width: 15px;
+    }
+
+    .stone {
         width: 15px;
     }
 }

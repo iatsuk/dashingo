@@ -14,17 +14,17 @@
         </div>
     </div>
     <div class="bottom-bowl-area white-bowl"></div>
-    <!--<div id="draggable" class="stone"></div>-->
+    <div id="draggable" class="stone"></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script>
     $("#draggable").draggable();
-    $("#grid-snap").droppable({
+    $("#grid").droppable({
         over: function (event, ui) {
             $("#draggable").draggable({
-                grid: [50, 50]
+                grid: [40, 40]
             });
         },
         out: function (event, ui) {
