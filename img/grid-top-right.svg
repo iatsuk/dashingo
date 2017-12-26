@@ -1,7 +1,7 @@
-<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
  <g>
   <title>Cross</title>
-  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="vertical" y2="32" x2="16" y1="16" x1="16" stroke-width="1" stroke="#000" fill="none"/>
-  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="horizontal" y2="16" x2="16" y1="16" x1="0" stroke-width="1" stroke="#000" fill="none"/>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="vertical" y2="100" x2="50" y1="50" x1="50" stroke-width="5" stroke="#000" fill="none"/>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="horizontal" y2="50" x2="50" y1="50" x1="0" stroke-width="5" stroke="#000" fill="none"/>
  </g>
 </svg>
