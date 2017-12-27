@@ -4,14 +4,6 @@ html, body {
 
 .background {
     background: url("../img/background-wood.jpg");
-
-    display: grid;
-    grid-template-rows: 10% 80% 10%;
-    grid-column-gap: 1%;
-    grid-row-gap: 1%;
-    justify-content: stretch;
-    align-content: stretch;
-
     position: fixed;
     left: 0;
     top: 0;
@@ -22,28 +14,30 @@ html, body {
 /* Areas */
 
 .top-bowl-area {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: center;
-    align-self: end;
-
     background: darkgrey;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 10%;
 }
 
 .board-area {
-    grid-column: 1 / 6;
-    grid-row: 2;
-    justify-self: center;
-    align-self: center;
-    background: bisque;
+    position: fixed;
+    left: 0;
+    top: 10%;
+    width: 100%;
+    bottom: 10%;
+    z-index: 1;
 }
 
 .bottom-bowl-area {
-    grid-column: 4;
-    grid-row: 3;
-    justify-self: center;
-    align-self: start;
     background: lightgrey;
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    width: 50%;
+    height: 10%;
 }
 
 /* Board */
@@ -51,10 +45,13 @@ html, body {
 .board {
     background: url("../img/board.bmp") no-repeat;
     background-size: contain;
-    position: static;
-    max-width: 100%;
-    max-height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     box-shadow: 0 0 40px rgba(0, 0, 0, 1);
+    width: 760px;
+    height: 760px;
 }
 
 .grid {
@@ -122,22 +119,17 @@ html, body {
 
 /* Objects */
 .black-bowl {
-    border-radius: 50%;
-    height: 200%;
-    content: url("../img/black-bowl.bmp");
-    box-shadow: 0 0 40px rgba(0, 0, 0, 1);
+    background: url("../img/black-bowl.bmp") no-repeat;
+    background-size: contain;
 }
 
 .white-bowl {
-    border-radius: 50%;
-    height: 200%;
-    content: url("../img/white-bowl.bmp");
-    box-shadow: 0 0 40px rgba(0, 0, 0, 1);
+    background: url("../img/white-bowl.bmp") no-repeat;
+    background-size: contain;
 }
 
 .stone {
-    position: a;
-    content: url("../img/stone.bmp");
+    background: url("../img/stone.bmp");
     border-radius: 50%;
     width: 40px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 1);
@@ -154,6 +146,11 @@ html, body {
 
 /* Adaptive design */
 @media screen and (max-width: 800px), screen and (max-height: 980px) {
+    .board {
+        width: 570px;
+        height: 570px;
+    }
+
     .grid-item {
         width: 30px;
         height: 30px;
@@ -164,7 +161,12 @@ html, body {
     }
 }
 
-@media screen and (max-width: 600px), screen and (max-height: 780px) {
+@media screen and (max-width: 600px), screen and (max-height: 740px) {
+    .board {
+        width: 475px;
+        height: 475px;
+    }
+
     .grid-item {
         width: 25px;
         height: 25px;
@@ -175,10 +177,31 @@ html, body {
     }
 }
 
-@media screen and (max-width: 500px), screen and (max-height: 680px) {
+@media screen and (max-width: 500px), screen and (max-height: 640px) {
+    .board {
+        width: 380px;
+        height: 380px;
+    }
+
+    .grid-item {
+        width: 20px;
+        height: 20px;
+    }
+
+    .stone {
+        width: 20px;
+    }
+}
+
+@media screen and (max-width: 400px), screen and (max-height: 500px) {
+    .board {
+        width: 285px;
+        height: 285px;
+    }
+
     .grid-item {
         width: 15px;
-        height: 25px;
+        height: 15px;
     }
 
     .stone {
