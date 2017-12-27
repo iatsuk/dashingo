@@ -2,19 +2,24 @@ html, body {
     height: 100%;
 }
 
-.background {
+.container {
     background: url("../img/background-wood.jpg");
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Areas */
 
 .top-bowl-area {
-    position: absolute;
+    order: 0;
+    align-self: flex-start;
+    position: static;
     left: 0;
     top: 0;
     width: 50%;
@@ -22,7 +27,9 @@ html, body {
 }
 
 .board-area {
-    position: absolute;
+    order: 1;
+    align-self: center;
+    position: static;
     left: 0;
     top: 10%;
     width: 100%;
@@ -30,7 +37,9 @@ html, body {
 }
 
 .bottom-bowl-area {
-    position: absolute;
+    order: 2;
+    align-self: flex-end;
+    position: static;
     left: 50%;
     bottom: 0;
     width: 50%;
@@ -42,10 +51,10 @@ html, body {
 .board {
     background: url("../img/board.bmp") no-repeat;
     background-size: contain;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    position: static;
+    /*left: 50%;*/
+    /*top: 50%;*/
+    /*transform: translate(-50%, -50%);*/
     box-shadow: 0 0 40px rgba(0, 0, 0, 1);
     width: 760px;
     height: 760px;
