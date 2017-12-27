@@ -9,17 +9,8 @@ $(document).ready(function () {
             var $this = $(this);
 
             if ($this.children().length === 0) {
+                ui.draggable.css("position", "static");
                 $this.append(ui.draggable);
-
-                var width = $this.width();
-                var height = $this.height();
-                var cntrLeft = (width / 2) - (ui.draggable.width() / 2);
-                var cntrTop = (height / 2) - (ui.draggable.height() / 2);
-
-                ui.draggable.css({
-                    left: cntrLeft + "px",
-                    top: cntrTop + "px"
-                });
             }
         }
     });

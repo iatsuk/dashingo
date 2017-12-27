@@ -7,24 +7,29 @@
     <link rel="stylesheet" href="css/goban.css">
 </head>
 <body>
-<div id="background" class="background">
-    <div class="top-bowl-area black-bowl">
-    </div>
-    <div class="board-area board">
-        <div id="grid" class="grid">
-            <div class="stone"></div>
-            <div class="stone"></div>
-            <div class="stone"></div>
-        </div>
-    </div>
+<div class="background">
+    <div class="top-bowl-area black-bowl"></div>
     <div class="bottom-bowl-area white-bowl"></div>
+    <div class="board-area board">
+        <div id="grid" class="grid"></div>
+        <div class="stone"></div>
+        <div class="stone"></div>
+        <div class="stone"></div>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="js/board.js"></script>
 <script>
-    $(".stone").draggable();
+    $(".stone").draggable({
+        zIndex: 100,
+        start: function( event, ui ) {
+            var $this = $(this);
+            $this.css("position", "absolute");
+            $this.appendTo($(".board-area"));
+        }
+    });
 </script>
 </body>
 </html>

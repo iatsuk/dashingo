@@ -15,7 +15,7 @@ html, body {
 
 .top-bowl-area {
     background: darkgrey;
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
     width: 50%;
@@ -23,7 +23,7 @@ html, body {
 }
 
 .board-area {
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 10%;
     width: 100%;
@@ -32,7 +32,7 @@ html, body {
 
 .bottom-bowl-area {
     background: lightgrey;
-    position: fixed;
+    position: absolute;
     left: 50%;
     bottom: 0;
     width: 50%;
@@ -128,7 +128,9 @@ html, body {
 }
 
 .stone {
+    position: absolute;
     background: url("../img/stone.bmp");
+    background-size: contain;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -158,6 +160,7 @@ html, body {
 
     .stone {
         width: 30px;
+        height: 30px;
     }
 }
 
