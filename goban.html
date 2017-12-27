@@ -8,7 +8,9 @@
 </head>
 <body>
 <div class="background">
-    <div class="top-bowl-area black-bowl"></div>
+    <div class="top-bowl-area">
+        <div class="black-bowl"></div>
+    </div>
     <div class="bottom-bowl-area white-bowl"></div>
     <div class="board-area board">
         <div id="grid" class="grid"></div>
@@ -22,6 +24,22 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="js/board.js"></script>
 <script>
+    $(".black-bowl").draggable({
+        zIndex: 100,
+        start: function( event, ui ) {
+            var $this = $(this);
+            $this.css("position", "absolute");
+            $this.appendTo($(".board-area"));
+            $this.addClass("stone").removeClass("black-bowl");
+
+
+            var bowl = $(".top-bowl-area");
+            if (bowl.children().length === 0) {
+                bowl.append($('<div class="black-bowl"></div>'));
+            }
+        }
+    });
+
     $(".stone").draggable({
         zIndex: 100,
         start: function( event, ui ) {

@@ -14,7 +14,6 @@ html, body {
 /* Areas */
 
 .top-bowl-area {
-    background: darkgrey;
     position: absolute;
     left: 0;
     top: 0;
@@ -31,7 +30,6 @@ html, body {
 }
 
 .bottom-bowl-area {
-    background: lightgrey;
     position: absolute;
     left: 50%;
     bottom: 0;
@@ -120,6 +118,8 @@ html, body {
 .black-bowl {
     background: url("../img/black-bowl.bmp") no-repeat;
     background-size: contain;
+    width: 100%;
+    height: 100%;
 }
 
 .white-bowl {
