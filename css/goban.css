@@ -67,47 +67,57 @@ html, body {
     justify-self: center;
     align-self: center;
     width: 40px;
-    height: auto;
+    height: 40px;
 }
 
 .grid-cross {
-    content: url("../img/grid-cross.svg");
+    background: url("../img/grid-cross.svg");
+    background-size: contain;
 }
 
 .grid-cross-dot {
-    content: url("../img/grid-cross-dot.svg");
+    background: url("../img/grid-cross-dot.svg");
+    background-size: contain;
 }
 
 .grid-top {
-    content: url("../img/grid-top.svg");
+    background: url("../img/grid-top.svg");
+    background-size: contain;
 }
 
 .grid-bottom {
-    content: url("../img/grid-bottom.svg");
+    background: url("../img/grid-bottom.svg");
+    background-size: contain;
 }
 
 .grid-left {
-    content: url("../img/grid-left.svg");
+    background: url("../img/grid-left.svg");
+    background-size: contain;
 }
 
 .grid-right {
-    content: url("../img/grid-right.svg");
+    background: url("../img/grid-right.svg");
+    background-size: contain;
 }
 
 .grid-top-left {
-    content: url("../img/grid-top-left.svg");
+    background: url("../img/grid-top-left.svg");
+    background-size: contain;
 }
 
 .grid-top-right {
-    content: url("../img/grid-top-right.svg");
+    background: url("../img/grid-top-right.svg");
+    background-size: contain;
 }
 
 .grid-bottom-left {
-    content: url("../img/grid-bottom-left.svg");
+    background: url("../img/grid-bottom-left.svg");
+    background-size: contain;
 }
 
 .grid-bottom-right {
-    content: url("../img/grid-bottom-right.svg");
+    background: url("../img/grid-bottom-right.svg");
+    background-size: contain;
 }
 
 /* Objects */
@@ -126,9 +136,11 @@ html, body {
 }
 
 .stone {
+    position: a;
     content: url("../img/stone.bmp");
     border-radius: 50%;
     width: 40px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 1);
 }
 
 /* Utils */
@@ -144,6 +156,7 @@ html, body {
 @media screen and (max-width: 800px), screen and (max-height: 980px) {
     .grid-item {
         width: 30px;
+        height: 30px;
     }
 
     .stone {
@@ -154,6 +167,7 @@ html, body {
 @media screen and (max-width: 600px), screen and (max-height: 780px) {
     .grid-item {
         width: 25px;
+        height: 25px;
     }
 
     .stone {
@@ -164,6 +178,7 @@ html, body {
 @media screen and (max-width: 500px), screen and (max-height: 680px) {
     .grid-item {
         width: 15px;
+        height: 25px;
     }
 
     .stone {

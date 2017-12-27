@@ -13,31 +13,14 @@
         <div id="grid" class="grid">
         </div>
     </div>
-    <div id="white-bowl" class="bottom-bowl-area white-bowl"></div>
-    <div id="draggable" class="stone"></div>
+    <div class="bottom-bowl-area white-bowl"></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script>
-    $("#black-bowl").on('click', function () {
-        var stone = $("<div></div>").addClass("stone");
-        stone.draggable();
-        $("#background").append(stone);
-    });
-
-    $("#draggable").draggable();
-    $("#grid").droppable({
-        over: function (event, ui) {
-            $("#draggable").draggable({
-                grid: [40, 40]
-            });
-        },
-        out: function (event, ui) {
-            $("#draggable").draggable("option", "grid", false);
-        }
-    })
-</script>
 <script src="js/board.js"></script>
+<script>
+    $(".black-bowl");
+</script>
 </body>
 </html>

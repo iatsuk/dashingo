@@ -1,18 +1,40 @@
 $(document).ready(function () {
     var board = new Board(19, [4, 10, 16], $('#grid'));
     board.paint();
+
+    $(".grid-item").droppable({
+        accept: ".stone",
+        greedy: true,
+        drop: function (event, ui) {
+            var $this = $(this);
+
+            if ($this.children().length === 0) {
+                $this.append(ui.draggable);
+
+                var width = $this.width();
+                var height = $this.height();
+                var cntrLeft = (width / 2) - (ui.draggable.width() / 2);
+                var cntrTop = (height / 2) - (ui.draggable.height() / 2);
+
+                ui.draggable.css({
+                    left: cntrLeft + "px",
+                    top: cntrTop + "px"
+                });
+            }
+        }
+    });
 });
 
-function Board(size, stars, grid) {
+function Board(size, stars, $grid) {
 
     this.N = size,
     this.stars = stars,
-    this.grid = grid,
+    this.$grid = $grid,
 
     this.paint = function () {
         for (y = 1; y <= this.N; y++) {
             for (x = 1; x <= this.N; x++) {
-                var cell = $("<div style='grid-row: " + y + "; grid-column: + " + x + ";'></div>")
+                var cell = $("<div style='grid-row: " + y + "; grid-column: " + x + ";'></div>")
                     .addClass("unselectable grid-item");
                 if (y === 1 && x === 1) {
                     cell.addClass("grid-top-left");
@@ -35,7 +57,7 @@ function Board(size, stars, grid) {
                 } else {
                     cell.addClass("grid-cross");
                 }
-                this.grid.append(cell);
+                this.$grid.append(cell);
             }
         }
     }
