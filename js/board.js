@@ -16,39 +16,39 @@ $(document).ready(function () {
     });
 });
 
-function Board(size, stars, $grid) {
+function Board(size, stars_array, $grid_obj) {
 
-    this.N = size,
-    this.stars = stars,
-    this.$grid = $grid,
+    var N = size;
+    var stars = stars_array;
+    var $grid = $grid_obj;
 
     this.paint = function () {
-        for (y = 1; y <= this.N; y++) {
-            for (x = 1; x <= this.N; x++) {
+        for (y = 1; y <= N; y++) {
+            for (x = 1; x <= N; x++) {
                 var cell = $("<div style='grid-row: " + y + "; grid-column: " + x + ";'></div>")
                     .addClass("unselectable grid-item");
                 if (y === 1 && x === 1) {
                     cell.addClass("grid-top-left");
-                } else if (y === 1 && x === this.N) {
+                } else if (y === 1 && x === N) {
                     cell.addClass("grid-top-right");
-                } else if (y === this.N && x === 1) {
+                } else if (y === N && x === 1) {
                     cell.addClass("grid-bottom-left");
-                } else if (y === this.N && x === this.N) {
+                } else if (y === N && x === N) {
                     cell.addClass("grid-bottom-right");
                 } else if (y === 1) {
                     cell.addClass("grid-top");
-                } else if (y === this.N) {
+                } else if (y === N) {
                     cell.addClass("grid-bottom");
                 } else if (x === 1) {
                     cell.addClass("grid-left");
-                } else if (x === this.N) {
+                } else if (x === N) {
                     cell.addClass("grid-right");
-                } else if (this.stars.includes(x) && this.stars.includes(y)) {
+                } else if (stars.includes(x) && stars.includes(y)) {
                     cell.addClass("grid-cross-dot");
                 } else {
                     cell.addClass("grid-cross");
                 }
-                this.$grid.append(cell);
+                $grid.append(cell);
             }
         }
     }
