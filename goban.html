@@ -9,12 +9,14 @@
 <body>
 <div class="container">
     <div class="top-bowl-area">
-        <div class="black-bowl"></div>
+        <div class="bowl bowl-black"></div>
     </div>
     <div class="board-area board">
         <div id="grid" class="grid"></div>
     </div>
-    <div class="bottom-bowl-area white-bowl"></div>
+    <div class="bottom-bowl-area">
+        <div class="bowl bowl-white"></div>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -22,8 +24,7 @@
 <script src="js/board.js"></script>
 <script>
     $(document).ready(function () {
-        var blackBowl = $(".black-bowl");
-        blackBowl.droppable({
+        $(".bowl").droppable({
             accept: ".stone",
             greedy: true,
             drop: function (event, ui) {
@@ -31,9 +32,9 @@
             }
         });
 
-        blackBowl.on('click', function () {
+        $(".bowl-black").on('click', function () {
             var $this = $(this);
-            var $stone = $('<div class="stone"></div>').css({
+            var $stone = $('<div class="stone stone-black"></div>').css({
                 left: $this.offset().left + $this.width() / 2 + "px",
                 top: $this.offset().top + $this.height() / 2 + "px",
                 position: "absolute"
