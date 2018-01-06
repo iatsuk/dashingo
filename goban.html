@@ -23,34 +23,5 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="js/board.js"></script>
 <script src="js/bowl.js"></script>
-<script>
-    $(document).ready(function () {
-        $(".bowl").droppable({
-            accept: ".stone",
-            greedy: true,
-            drop: function (event, ui) {
-                ui.draggable.detach();
-            }
-        });
-
-        $(".bowl-black").on('click', function () {
-            var $this = $(this);
-            var $stone = $('<div class="stone stone-black"></div>').css({
-                left: $this.offset().left + $this.width() / 2 + "px",
-                top: $this.offset().top + $this.height() / 2 + "px",
-                position: "absolute"
-            });
-            $stone.draggable({
-                zIndex: 100,
-                start: function (event, ui) {
-                    var $this = $(this);
-                    $this.css('position', 'absolute');
-                    $this.appendTo($('.container'));
-                }
-            });
-            $this.parent().parent().append($stone);
-        });
-    });
-</script>
 </body>
 </html>

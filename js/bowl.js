@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 function Bowl(bowl_class, stone_html) {
     var $bowl = $(bowl_class);
-    var $stone1 = $(stone_html);
+    var stone = stone_html;
 
     this.draw = function () {
         $bowl.droppable({
@@ -21,7 +21,7 @@ function Bowl(bowl_class, stone_html) {
 
         $bowl.on('click', function () {
             var $this = $(this);
-            var $stone = $stone1.css({
+            var $stone = $(stone).css({
                 left: $this.offset().left + $this.width() / 2 + "px",
                 top: $this.offset().top + $this.height() / 2 + "px",
                 position: "absolute"
