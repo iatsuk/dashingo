@@ -127,18 +127,23 @@ html, body {
 .bowl {
     width: 100%;
     height: 100%;
-
 }
 
 .bowl-black {
     background: url("../img/black-bowl.bmp") no-repeat;
     background-size: contain;
-
 }
 
 .bowl-white {
     background: url("../img/white-bowl.bmp") no-repeat;
     background-size: contain;
+}
+
+.bowl-stone {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    opacity: 0.1;
 }
 
 /* Stones */
