@@ -16,32 +16,28 @@ $(document).ready(function () {
     });
 });
 
-function Board(size, stars_array, $grid_obj) {
-
-    var N = size;
-    var stars = stars_array;
-    var $grid = $grid_obj;
+function Board(size, stars, $grid) {
 
     this.paint = function () {
-        for (y = 1; y <= N; y++) {
-            for (x = 1; x <= N; x++) {
+        for (y = 1; y <= size; y++) {
+            for (x = 1; x <= size; x++) {
                 var cell = $("<div style='grid-row: " + y + "; grid-column: " + x + ";'></div>")
                     .addClass("unselectable grid-item");
                 if (y === 1 && x === 1) {
                     cell.addClass("grid-top-left");
-                } else if (y === 1 && x === N) {
+                } else if (y === 1 && x === size) {
                     cell.addClass("grid-top-right");
-                } else if (y === N && x === 1) {
+                } else if (y === size && x === 1) {
                     cell.addClass("grid-bottom-left");
-                } else if (y === N && x === N) {
+                } else if (y === size && x === size) {
                     cell.addClass("grid-bottom-right");
                 } else if (y === 1) {
                     cell.addClass("grid-top");
-                } else if (y === N) {
+                } else if (y === size) {
                     cell.addClass("grid-bottom");
                 } else if (x === 1) {
                     cell.addClass("grid-left");
-                } else if (x === N) {
+                } else if (x === size) {
                     cell.addClass("grid-right");
                 } else if (stars.includes(x) && stars.includes(y)) {
                     cell.addClass("grid-cross-dot");
