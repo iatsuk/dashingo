@@ -21,7 +21,7 @@ function Board(size, stars, $grid) {
     this.paint = function () {
         for (y = 1; y <= size; y++) {
             for (x = 1; x <= size; x++) {
-                var cell = $("<div style='grid-row: " + y + "; grid-column: " + x + ";'></div>")
+                var cell = $('<div>', {style: "grid-row: " + y + "; grid-column: " + x + ";"})
                     .addClass("unselectable grid-item");
                 if (y === 1 && x === 1) {
                     cell.addClass("grid-top-left");

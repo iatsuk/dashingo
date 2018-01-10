@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    var blackBowl = new Bowl($('.bowl-black'), 'stone-black');
-    blackBowl.draw();
+    var blackBowl = new Bowl($('.bowl-black'), 'stone stone-black');
+    blackBowl.addEvents();
 
-    var whiteBowl = new Bowl($('.bowl-white'), 'stone-white');
-    whiteBowl.draw();
+    var whiteBowl = new Bowl($('.bowl-white'), 'stone stone-white');
+    whiteBowl.addEvents();
 });
 
 function Bowl($bowl, stoneCls) {
-    this.draw = function () {
+    this.addEvents = function () {
         $bowl.droppable({
             accept: ".stone",
             greedy: true,
@@ -16,24 +16,19 @@ function Bowl($bowl, stoneCls) {
             }
         });
 
-        addFakeStone();
-    };
-
-    var addFakeStone = function () {
-        var $fakeStone = $('<div class="bowl-stone"></div>');
-        $fakeStone.draggable({
-            zIndex: 100,
-            start: function (event, ui) {
-                var $this = $(this);
-                $this.css('position', 'absolute')
-                    .appendTo($('.container'))
-                    .addClass("stone")
-                    .addClass(stoneCls)
-                    .removeClass("bowl-stone");
-                addFakeStone();
-            },
-            cursorAt: {left: $fakeStone.width() / 2, top: $fakeStone.height() / 2}
+        $bowl.on('mousedown', function (event) {
+            var $stone = $('<div>', {class: stoneCls})
+                .appendTo($(this).closest(".container"))
+                .draggable({
+                    start: function (event, ui) {
+                        $(this).css('position', 'absolute').appendTo($('.container'));
+                    }
+                });
+            $stone.css({
+                left: event.pageX - ($stone.width() / 2),
+                top: event.pageY - ($stone.height() / 2)
+            });
+            $stone.trigger(event);
         });
-        $bowl.append($fakeStone);
-    }
+    };
 }
