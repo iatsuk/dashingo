@@ -20,6 +20,7 @@ function Bowl($bowl, stoneCls) {
             var $stone = $('<div>', {class: stoneCls})
                 .appendTo($(this).closest(".container"))
                 .draggable({
+                    scroll: false,
                     start: function (event, ui) {
                         $(this).css('position', 'absolute').appendTo($('.container'));
                     }
