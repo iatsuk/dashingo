@@ -53,12 +53,7 @@ html, body {
     background: url("../img/board.bmp") no-repeat;
     background-size: contain;
     position: static;
-    /*left: 50%;*/
-    /*top: 50%;*/
-    /*transform: translate(-50%, -50%);*/
     box-shadow: 0 0 40px rgba(0, 0, 0, 1);
-    width: 760px;
-    height: 760px;
 }
 
 .grid {
@@ -70,8 +65,6 @@ html, body {
 .grid-item {
     justify-self: center;
     align-self: center;
-    width: 40px;
-    height: 40px;
 }
 
 .grid-cross {
@@ -151,8 +144,6 @@ html, body {
 
 .stone {
     position: absolute;
-    width: 40px;
-    height: 40px;
 }
 
 .stone-black {
@@ -174,70 +165,78 @@ html, body {
     user-select: none;
 }
 
-/* Adaptive design */
-@media screen and (max-width: 800px), screen and (max-height: 980px) {
+/* Adaptive design
+
+board.height = grid-item.height * 19
+bowls.height = board.height * 0.2 / 0.8 = board.height * 0.25
+max-height > board.height + bowls.height
+max-width > board.height
+*/
+.board {
+    width: 760px;
+    height: 760px;
+}
+
+.grid-item, .stone {
+    width: 40px;
+    height: 40px;
+}
+
+@media screen and (max-width: 800px), screen and (max-height: 970px) {
+    .board {
+        width: 665px;
+        height: 665px;
+    }
+
+    .grid-item, .stone {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 700px), screen and (max-height: 850px) {
     .board {
         width: 570px;
         height: 570px;
     }
 
-    .grid-item {
-        width: 30px;
-        height: 30px;
-    }
-
-    .stone {
+    .grid-item, .stone {
         width: 30px;
         height: 30px;
     }
 }
 
-@media screen and (max-width: 600px), screen and (max-height: 740px) {
+@media screen and (max-width: 600px), screen and (max-height: 730px) {
     .board {
         width: 475px;
         height: 475px;
     }
 
-    .grid-item {
-        width: 25px;
-        height: 25px;
-    }
-
-    .stone {
+    .grid-item, .stone {
         width: 25px;
         height: 25px;
     }
 }
 
-@media screen and (max-width: 500px), screen and (max-height: 640px) {
+@media screen and (max-width: 500px), screen and (max-height: 610px) {
     .board {
         width: 380px;
         height: 380px;
     }
 
-    .grid-item {
-        width: 20px;
-        height: 20px;
-    }
-
-    .stone {
+    .grid-item, .stone {
         width: 20px;
         height: 20px;
     }
 }
 
-@media screen and (max-width: 400px), screen and (max-height: 500px) {
+@media screen and (max-width: 400px), screen and (max-height: 490px) {
     .board {
         width: 285px;
         height: 285px;
     }
 
-    .grid-item {
-        width: 15px;
-        height: 15px;
-    }
-
-    .stone {
+    .grid-item, .stone {
         width: 15px;
         height: 15px;
     }
