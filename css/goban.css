@@ -118,18 +118,23 @@ html, body {
 }
 
 /* Bowls */
-.bowl {
-    width: 100%;
-    height: 100%;
-}
 
 .bowl-black {
-    background: url("../img/black-bowl.bmp") no-repeat;
+    display: inline-block;
+    transform: translate(0, -50%);
+    background: url("../img/bowl-black.png") no-repeat;
     background-size: contain;
 }
 
 .bowl-white {
-    background: url("../img/white-bowl.bmp") no-repeat;
+    display: inline-block;
+    background: url("../img/bowl-white.png") no-repeat;
+    background-size: contain;
+}
+
+.bowl-cap {
+    display: inline-block;
+    background: url("../img/bowl-cap.png") no-repeat;
     background-size: contain;
 }
 
@@ -157,6 +162,7 @@ html, body {
 }
 
 /* Utils */
+
 .unselectable {
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
@@ -172,72 +178,103 @@ bowls.height = board.height * 0.2 / 0.8 = board.height * 0.25
 max-height > board.height + bowls.height
 max-width > board.height
 */
-.board {
-    width: 760px;
-    height: 760px;
-}
 
 .grid-item, .stone {
     width: 40px;
     height: 40px;
 }
 
+.board {
+    width: 760px;
+    height: 760px;
+}
+
+.bowl-black, .bowl-white, .bowl-cap {
+    width: 190px;
+    height: 190px;
+}
+
 @media screen and (max-width: 800px), screen and (max-height: 970px) {
+    .grid-item, .stone {
+        width: 35px;
+        height: 35px;
+    }
+
     .board {
         width: 665px;
         height: 665px;
     }
 
-    .grid-item, .stone {
-        width: 35px;
-        height: 35px;
+    .bowl-black, .bowl-white, .bowl-cap {
+        width: 130px;
+        height: 130px;
     }
 }
 
 @media screen and (max-width: 700px), screen and (max-height: 850px) {
+    .grid-item, .stone {
+        width: 30px;
+        height: 30px;
+    }
+
     .board {
         width: 570px;
         height: 570px;
     }
 
-    .grid-item, .stone {
-        width: 30px;
-        height: 30px;
+    .bowl-black, .bowl-white, .bowl-cap {
+        width: 120px;
+        height: 120px;
     }
 }
 
 @media screen and (max-width: 600px), screen and (max-height: 730px) {
+    .grid-item, .stone {
+        width: 25px;
+        height: 25px;
+    }
+
     .board {
         width: 475px;
         height: 475px;
     }
 
-    .grid-item, .stone {
-        width: 25px;
-        height: 25px;
+    .bowl-black, .bowl-white, .bowl-cap {
+        width: 110px;
+        height: 110px;
     }
 }
 
 @media screen and (max-width: 500px), screen and (max-height: 610px) {
+    .grid-item, .stone {
+        width: 20px;
+        height: 20px;
+    }
+
     .board {
         width: 380px;
         height: 380px;
     }
 
-    .grid-item, .stone {
-        width: 20px;
-        height: 20px;
+    .bowl-black, .bowl-white, .bowl-cap {
+        width: 100px;
+        height: 100px;
     }
 }
 
 @media screen and (max-width: 400px), screen and (max-height: 490px) {
+    .grid-item, .stone {
+        width: 15px;
+        height: 15px;
+    }
+
     .board {
         width: 285px;
         height: 285px;
     }
 
-    .grid-item, .stone {
-        width: 15px;
-        height: 15px;
+    .bowl-black, .bowl-white, .bowl-cap {
+        width: 90px;
+        height: 90px;
     }
 }
