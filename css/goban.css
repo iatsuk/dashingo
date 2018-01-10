@@ -50,7 +50,7 @@ html, body {
 /* Board */
 
 .board {
-    background: url("../img/board.bmp") no-repeat;
+    background: url("../img/board.jpg") no-repeat;
     background-size: contain;
     position: static;
     box-shadow: 0 0 40px rgba(0, 0, 0, 1);
