@@ -1,6 +1,8 @@
 # dashingo
 Go game goban inspired by games in 5Star's iGoban with my niece. Unfortunately, iGoban is not support devices under iOS 11. So I decided to write my own implementation of authentic Go board in skeuomorph design. 
 
+![Image](https://github.com/yatsukav/dashingo/blob/screenshots/2018-01-11.jpg?raw=true)
+
 ## Tech stack
 * HTML5
 * CSS3 (+grid)
