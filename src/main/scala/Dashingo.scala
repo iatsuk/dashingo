@@ -1,3 +1,4 @@
+import org.scalajs.dom
 import org.scalajs.dom.html
 import org.scalajs.dom.svg.SVG
 import scalatags.JsDom
@@ -11,16 +12,25 @@ object Dashingo {
 
   @JSExport
   def main(target: html.Body): Unit = {
+    target.style.height = "100vh"
+    target.style.width = "100%"
+    val c = div().render
+    c.textContent = s"${target.clientWidth} x ${target.clientHeight}"
+
     val gobanWidth = 500
-    println(target.clientWidth - gobanWidth/2.0 + "px")
     target.appendChild(
       div(
+        c,
         div(goban(9, gobanWidth), position:="absolute",
-          left:=target.clientWidth - gobanWidth/2.0 + "px", top:=target.clientHeight - gobanWidth/2.0 + "px"
+          left:=(target.clientWidth-gobanWidth)/2+"px", top:=(target.clientHeight-gobanWidth)/2+"px"
         ),
         for (x <- 0 until 9) yield p(s"This is a big $x"),
       ).render
     )
+
+    target.onresize = { (e: dom.Event) =>
+      c.textContent = s"${target.clientWidth} x ${target.clientHeight}"
+    }
   }
 
   def goban(size: Int, width: Int): JsDom.TypedTag[SVG] = {
