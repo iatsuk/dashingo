@@ -12,7 +12,7 @@ import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
 object Dashingo {
 
   val goban = new Goban(11)
-  val bowls = Map("black" -> new Bowl(true), "white" -> new Bowl(false))
+  val bowls = Map(true -> new Bowl(true), false -> new Bowl(false))
   val stonesContainer: html.Div = div().render
   val stones: mutable.MutableList[Stone] = mutable.MutableList()
 
@@ -23,8 +23,7 @@ object Dashingo {
     target.style.width = "100%"
     target.style.margin = "0"
     // build scene
-    target.appendChild(bowls("black").figure)
-    target.appendChild(bowls("white").figure)
+    bowls.values.map(_.figure).foreach(target.appendChild)
     target.appendChild(goban.figure)
     target.appendChild(stonesContainer)
     // set up interaction
@@ -32,8 +31,8 @@ object Dashingo {
     // update
     onresize(target.clientWidth, target.clientHeight)
     bowls.foreach(Function.tupled((color, bowl) => bowl.figure.onmousedown = { e: dom.MouseEvent =>
-      val stone = new Stone(color.equals("black"), e.pageX, e.pageY)
-      stone.resize(25)
+      val stone = new Stone(color, e.pageX, e.pageY, target.clientWidth, target.clientHeight)
+      stone.resize(goban.cellSize())
       stones += stone
       stonesContainer.appendChild(stone.figure)
     }))
@@ -46,6 +45,10 @@ object Dashingo {
     })
     goban.resize(math.min(clientWidth, clientHeight) * 0.9)
     goban.locate(clientWidth, clientHeight)
+    stones.foreach(stone => {
+      stone.resize(goban.cellSize())
+      stone.locate(clientWidth, clientHeight)
+    })
   }
 
 }

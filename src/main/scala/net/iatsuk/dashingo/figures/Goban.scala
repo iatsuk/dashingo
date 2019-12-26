@@ -9,6 +9,8 @@ import scalatags.JsDom.svgTags.{line, svg}
 class Goban(size: Int) extends Figure {
 
   private[this] var length: Double = _
+  private[this] var thickness: Double = _
+  private[this] var cellSize: Double = _
 
   private val lines: Seq[dom.svg.Line] = for (_ <- 0 until size * 2) yield line(stroke := "black").render
 
@@ -22,8 +24,8 @@ class Goban(size: Int) extends Figure {
     board.setAttribute("width", length.px)
     board.setAttribute("height", length.px)
     // set lines length and stroke
-    val thickness = length / 35.0 / size
-    val cellSize = (length - thickness) / (size - 1.0)
+    thickness = length / 35.0 / size
+    cellSize = (length - thickness) / (size - 1.0)
     val start = 0.5 * thickness
     val stop = length - 0.5 * thickness
     for (i <- 0 until size) {
@@ -32,6 +34,9 @@ class Goban(size: Int) extends Figure {
       updateLine(lines(i + size), (start.px, dyn.px), (stop.px, dyn.px), thickness.px)
     }
   }
+
+  def thickness(): Double = thickness
+  def cellSize(): Double = cellSize
 
   private[this] def updateLine(line: dom.svg.Line, start: (String, String), stop: (String, String), thickness: String): Unit = {
     line.setAttribute("x1", start._1)
