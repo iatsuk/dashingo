@@ -1,19 +1,22 @@
-package net.iatsuk.dashingo
+package net.iatsuk.dashingo.figures
 
 import org.scalajs.dom
+import org.scalajs.dom.svg.SVG
 import scalatags.JsDom.all._
 import scalatags.JsDom.svgAttrs.{fill, stroke}
 import scalatags.JsDom.svgTags.{circle, svg}
 
-class Bowl(black: Boolean) {
+class Bowl(black: Boolean) extends Figure {
 
   private[this] var length: Double = _
 
   private val round: dom.svg.Circle = circle(stroke := black, fill := (if (black) "black" else "grey")).render
 
-  val bowl: dom.svg.SVG = svg(round).render
+  private val bowl: dom.svg.SVG = svg(round).render
 
-  def resize(length: Double): Unit = {
+  override def figure: SVG = bowl
+
+  override def resize(length: Double): Unit = {
     this.length = length
     // set board length
     bowl.setAttribute("width", length.px)
@@ -24,7 +27,7 @@ class Bowl(black: Boolean) {
     round.setAttribute("cy", (length / 2).px)
   }
 
-  def locate(clientWidth: Int, clientHeight: Int): Unit = {
+  override def locate(clientWidth: Int, clientHeight: Int): Unit = {
     bowl.style.removeProperty("left")
     bowl.style.removeProperty("top")
     bowl.style.removeProperty("right")
