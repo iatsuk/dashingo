@@ -2,14 +2,14 @@ package net.iatsuk.dashingo
 
 import org.scalajs.dom
 import scalatags.JsDom.all._
-import scalatags.JsDom.svgAttrs.stroke
+import scalatags.JsDom.svgAttrs.{fill, stroke}
 import scalatags.JsDom.svgTags.{circle, svg}
 
 class Bowl(black: Boolean) {
 
   private[this] var length: Double = _
 
-  private val round: dom.svg.Circle = circle(stroke := "black").render
+  private val round: dom.svg.Circle = circle(stroke := black, fill := (if (black) "black" else "grey")).render
 
   val bowl: dom.svg.SVG = svg(round).render
 
@@ -24,18 +24,22 @@ class Bowl(black: Boolean) {
     round.setAttribute("cy", (length / 2).px)
   }
 
-  def center(clientWidth: Int, clientHeight: Int): Unit = {
+  def locate(clientWidth: Int, clientHeight: Int): Unit = {
     bowl.style.removeProperty("left")
     bowl.style.removeProperty("top")
     bowl.style.removeProperty("right")
     bowl.style.removeProperty("bottom")
-    if (black) {
-      bowl.style.left = (-length / 4).px
-      bowl.style.top = (-length / 4).px
-    } else {
-      bowl.style.right = (-length / 4).px
-      bowl.style.bottom = (-length / 4).px
+
+    val vert = clientHeight >= clientWidth
+    val (primary, secondary) = black match {
+      case true if vert => ("top", "left")
+      case true => ("bottom", "left")
+      case false if vert => ("bottom", "right")
+      case false => ("top", "right")
     }
+
+    bowl.style.setProperty(primary, (-length / 4).px)
+    bowl.style.setProperty(secondary, (-length / 4).px)
     bowl.style.position = "absolute"
   }
 

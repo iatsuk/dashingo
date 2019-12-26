@@ -9,7 +9,7 @@ import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
 object Dashingo {
 
   val goban = new Goban(11)
-  val bowl = new Bowl(true)
+  val bowls = Map("black" -> new Bowl(true), "white" -> new Bowl(false))
 
   @JSExport
   def main(target: html.Body): Unit = {
@@ -18,7 +18,8 @@ object Dashingo {
     target.style.width = "100%"
     target.style.margin = "0"
     // build scene
-    target.appendChild(bowl.bowl)
+    target.appendChild(bowls("black").bowl)
+    target.appendChild(bowls("white").bowl)
     target.appendChild(goban.board)
     // set up interaction
     target.onresize = { _: dom.Event => onresize(target.clientWidth, target.clientHeight) }
@@ -27,10 +28,12 @@ object Dashingo {
   }
 
   def onresize(clientWidth: Int, clientHeight: Int): Unit = {
-    bowl.resize(150)
-    bowl.center(clientWidth, clientHeight)
+    bowls.values.foreach(bowl => {
+      bowl.resize(150)
+      bowl.locate(clientWidth, clientHeight)
+    })
     goban.resize(math.min(clientWidth, clientHeight) * 0.9)
-    goban.center(clientWidth, clientHeight)
+    goban.locate(clientWidth, clientHeight)
   }
 
 }

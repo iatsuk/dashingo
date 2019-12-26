@@ -38,7 +38,7 @@ class Goban(size: Int) {
     line.setAttribute("stroke-width", thickness)
   }
 
-  def center(clientWidth: Int, clientHeight: Int): Unit = {
+  def locate(clientWidth: Int, clientHeight: Int): Unit = {
     board.style.position = "absolute"
     board.style.left = ((clientWidth - length) / 2).px
     board.style.top = ((clientHeight - length) / 2).px
