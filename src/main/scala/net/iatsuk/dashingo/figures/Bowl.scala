@@ -10,9 +10,9 @@ class Bowl(black: Boolean) extends Figure {
 
   private[this] var length: Double = _
 
-  private val round: dom.svg.Circle = circle(stroke := black, fill := (if (black) "black" else "grey")).render
+  private val inner: dom.svg.Circle = circle(stroke := "black", fill := (if (black) "black" else "grey")).render
 
-  private val bowl: dom.svg.SVG = svg(round).render
+  private val bowl: dom.svg.SVG = svg(inner, position := "absolute").render
 
   override def figure: SVG = bowl
 
@@ -22,9 +22,9 @@ class Bowl(black: Boolean) extends Figure {
     bowl.setAttribute("width", length.px)
     bowl.setAttribute("height", length.px)
     // set lines length and stroke
-    round.setAttribute("r", ((length - 2) / 2).px)
-    round.setAttribute("cx", (length / 2).px)
-    round.setAttribute("cy", (length / 2).px)
+    inner.setAttribute("r", ((length - 2) / 2).px)
+    inner.setAttribute("cx", (length / 2).px)
+    inner.setAttribute("cy", (length / 2).px)
   }
 
   override def locate(clientWidth: Int, clientHeight: Int): Unit = {
@@ -43,7 +43,6 @@ class Bowl(black: Boolean) extends Figure {
 
     bowl.style.setProperty(primary, (-length / 4).px)
     bowl.style.setProperty(secondary, (-length / 4).px)
-    bowl.style.position = "absolute"
   }
 
 }

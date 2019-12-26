@@ -12,7 +12,7 @@ class Goban(size: Int) extends Figure {
 
   private val lines: Seq[dom.svg.Line] = for (_ <- 0 until size * 2) yield line(stroke := "black").render
 
-  private val board: dom.svg.SVG = svg(lines).render
+  private val board: dom.svg.SVG = svg(lines, position := "absolute").render
 
   override def figure: SVG = board
 
@@ -42,7 +42,6 @@ class Goban(size: Int) extends Figure {
   }
 
   override def locate(clientWidth: Int, clientHeight: Int): Unit = {
-    board.style.position = "absolute"
     board.style.left = ((clientWidth - length) / 2).px
     board.style.top = ((clientHeight - length) / 2).px
   }
