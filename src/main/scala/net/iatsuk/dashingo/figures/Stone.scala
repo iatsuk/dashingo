@@ -29,6 +29,7 @@ class Stone(black: Boolean, x: Double, y: Double, clientWidth: Int, clientHeight
     }
   }
   stone.onmouseup = { _: dom.MouseEvent => captured = false }
+  stone.onmouseout = { _: dom.MouseEvent => captured = false }
 
   override def figure: SVG = stone
 
